@@ -9,6 +9,7 @@ class BinNode {
 
 	public:
 
+		//
 		BinNode(bool val, BinNode *next, BinNode *prev);
 
 		//

@@ -3,6 +3,7 @@
 #include "BinNode.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 class BinList {
 	
@@ -37,6 +38,9 @@ class BinList {
 		BinNode *getLast() const;
 
 		//
+		BinNode *getNode(int n) const;
+
+		//
 		bool add(bool val);
 
 		//
@@ -44,6 +48,9 @@ class BinList {
 
 		//
 		bool addEnd(bool val);
+
+		//
+		bool hasSubString(std::vector<bool> subString);
 
 		//
 		std::string print();

@@ -31,6 +31,35 @@ BinNode *BinList::getFirst() const {return this->first;}
 
 BinNode *BinList::getLast() const {return this->last;}
 
+BinNode *BinList::getNode(int n) const {
+
+	if(n == 0) return this->first;
+	else if (n == this->length-1) return this->last;
+	else if (n > 0 && n < this->length-1) {
+
+		BinNode *head = first->getNext();
+
+		while(head) {
+
+			if(n == 1) {
+
+				return head;
+
+			} else {
+
+				n--;
+				head = head->getNext();
+
+			}
+
+		}
+
+	}
+
+	return NULL;
+
+}
+
 bool BinList::add(bool val) {
 
 	if (first == NULL && last == NULL) {
@@ -51,7 +80,7 @@ bool BinList::add(bool val) {
 }
 
 bool BinList::addFront(bool val) {
-	
+
 	if(this->first == NULL) {
 
 		return this->add(val);
@@ -60,6 +89,9 @@ bool BinList::addFront(bool val) {
 
 		this->first = new BinNode(val,this->first,NULL);
 		this->first->getNext()->setPrev(this->first);
+		this->length++;
+		if(val) this->num1++;
+		else this->num0++;		
 
 	}
 
@@ -77,10 +109,33 @@ bool BinList::addEnd(bool val) {
 
 		this->last = new BinNode(val,NULL,this->last);
 		this->last->getPrev()->setNext(this->last);
+		this->length++;
+		if(val) this->num1++;
+		else this->num0++;
 
 	}
 
 	return true;
+
+}
+
+bool BinList::hasSubString(std::vector<bool> subString) {
+
+	for(int i = 0; i < (this->length - (int)subString.size() + 1); i++) {
+
+		bool equal = true;
+
+		for(int j = 0; j < subString.size(); j++) {
+			
+			if(this->getNode(i+j)->getVal() != subString[j])  equal = false;
+
+		}
+
+		if(equal) return true;
+
+	}
+
+	return false;
 
 }
 
