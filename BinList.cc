@@ -119,15 +119,15 @@ bool BinList::addEnd(bool val) {
 
 }
 
-bool BinList::hasSubString(std::vector<bool> subString) {
+bool BinList::hasSubString(std::vector<bool> subString) const {
 
-	for(int i = 0; i < (this->length - (int)subString.size() + 1); i++) {
+	for(int i = 0; i < (this->length - (int)subString.size() + 1); ++i) {
 
 		bool equal = true;
 
-		for(int j = 0; j < subString.size(); j++) {
+		for(int j = 0; j < subString.size(); ++j) {
 			
-			if(this->getNode(i+j)->getVal() != subString[j])  equal = false;
+			if(this->getNode(i+j)->getVal() != subString[j]) equal = false;
 
 		}
 
@@ -139,7 +139,58 @@ bool BinList::hasSubString(std::vector<bool> subString) {
 
 }
 
-std::string BinList::print() {
+bool BinList::hasSubString(std::vector<bool> subString, bool initial) const {
+
+	if(subString.size() > this->length) return false;
+
+	bool equal = true;
+
+	if(initial) {
+
+		for(int i = 0; i < subString.size(); ++i) {
+
+			if(this->getNode(i)->getVal() != subString[i]) equal = false;
+
+		}	
+
+	} else {
+
+		for(int i = this->length-subString.size(); i < this->length; ++i) {
+			
+			if(this->getNode(i)->getVal() != subString[i]) equal = false;
+			
+		}	
+
+	}
+
+	if(equal) return true;
+	return false;
+
+}
+
+int BinList::subStringOf(std::vector<bool> str) const {
+
+	if(this->length > str.size()) return -1;
+
+	for(int i = 0; i < str.size()-this->length+1; ++i) {
+	
+		bool equal = true;
+
+		for(int j = 0; j < this->length; ++j) {
+		
+			if(this->getNode(j)->getVal() != str[i+j]) equal = false;
+			
+		}
+
+		if(equal) return i;
+		
+	}
+
+	return -1;
+
+}
+
+std::string BinList::print() const {
 
 	std::string str = "";
 	BinNode* head = this->first;
@@ -155,3 +206,4 @@ std::string BinList::print() {
 	return str;
 
 }
+

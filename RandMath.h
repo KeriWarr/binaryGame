@@ -1,11 +1,12 @@
 #ifndef __RANDMATH_H__
 #define __RANDMATH_H__
+
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
 
 
-class randMath {
+class RandMath {
 
 		static bool seeded;
 
