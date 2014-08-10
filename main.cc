@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include <cstdlib>
 
 #include "BinNode.h"
 #include "BinList.h"
@@ -12,8 +13,9 @@
 const int NUM_WINCONS = 9;
 const int NUM_PLAYERS = 2;
 
+//COMMAND LINE STUFF ONLY WORKS FOR NUM_PLAYERS == 2
 
-int main() {
+int main(int argc, char const *argv[]) {
 
 	BinList *bl = new BinList();
 
@@ -26,7 +28,10 @@ int main() {
 
 	for(int i = 0; i < NUM_PLAYERS; ++i) {
 	
-		winCons[i] = RandMath::getRand(0, NUM_WINCONS-1-i);
+		// THIS SHIT vvvvv
+		if(argc == 3) winCons[i] = atoi(argv[i+1]);
+		else winCons[i] = RandMath::getRand(0, NUM_WINCONS-1-i);
+		// ^^^^^^^^^^^^^^^
 
 		while(winConTaken[winCons[i]]) ++winCons[i];
 
