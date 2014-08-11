@@ -1,5 +1,6 @@
 #include "Human.h"
 
+
 Human::Human(int winCon) : Player(winCon) {}
 
 std::pair<bool,bool> *Human::makeMove(BinList *bl) const {

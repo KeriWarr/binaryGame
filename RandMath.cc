@@ -1,5 +1,6 @@
 #include "RandMath.h"
 
+
 bool RandMath::seeded = false;
 
 int RandMath::seed = 0;

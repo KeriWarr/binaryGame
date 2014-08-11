@@ -1,5 +1,6 @@
 #include "ComputerPlayer.h"
 
+
 ComputerPlayer::ComputerPlayer(int winCon) : Player(winCon) {}
 
 std::pair<bool,bool> *ComputerPlayer::makeMove(BinList *bl) const {

@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 Player::Player(int winCon) : score(0), winCon(winCon) {}
 
 Player::~Player() {}

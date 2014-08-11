@@ -7,6 +7,7 @@
 
 #include "BinNode.h"
 
+
 class BinList {
 	
 		int length;
@@ -61,7 +62,7 @@ class BinList {
 		//  BinList_ptr->hasSubString({0,1,0,0,1,1});
 		bool hasSubString(std::vector<bool> subString) const;
 
-		// only checks for initial OR terminal substring
+		// only checks for initial XOR terminal substring
 		bool hasSubString(std::vector<bool> subString, bool initial) const;
 
 		// -1 means false;

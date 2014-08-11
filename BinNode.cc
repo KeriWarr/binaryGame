@@ -1,5 +1,6 @@
 #include "BinNode.h"
 
+
 BinNode::BinNode(bool val, BinNode *next, BinNode *prev) 
 	: val(val), next(next), prev(prev) {}
 

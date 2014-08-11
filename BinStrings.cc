@@ -1,5 +1,6 @@
 #include "BinStrings.h"
 
+
 const int BinStrings::NUM_STRING_SETS = 7;
 
 const int BinStrings::NUM_OTHER_WINCONS = 2;

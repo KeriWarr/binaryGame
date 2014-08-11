@@ -1,5 +1,6 @@
 #include "BinList.h"
 
+
 BinList::BinList() : length(0), num0(0), num1(0), first(NULL), last(NULL) {}
 
 BinList::~BinList() {

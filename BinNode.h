@@ -1,6 +1,7 @@
 #ifndef __BINNODE_H__
 #define __BINNODE_H__
 
+
 class BinNode {
 	
 		bool val;
