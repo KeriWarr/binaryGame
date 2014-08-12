@@ -37,14 +37,14 @@ int main(int argc, char const *argv[]) {
 		while(winConTaken[winCons[i]]) ++winCons[i];
 
 		winConTaken[winCons[i]] = true;
-		if(i) players[i] = new ComputerPlayer(winCons[i]);
-		else {
+		//if(i) players[i] = new ComputerPlayer(winCons[i]);
+		//else {
 			players[i] = new Human(winCons[i]);
 			std::cout << "Player win condition: " << winCons[i];
 			if(winCons[i] >= 0 && winCons[i] < BinStrings::NUM_STRING_SETS) std::cout << "Construct the following string: " << BinStrings::printSet(BinStrings::BIN_STRINGS[winCons[i]]) << std::endl;
 			else if (winCons[i] == (0+BinStrings::NUM_STRING_SETS)) std::cout << "Have the string contain ten 0's" << std::endl;
 			else if (winCons[i] == (1+BinStrings::NUM_STRING_SETS)) std::cout << "Have the string contain ten 1's" << std::endl;
-		}
+		//}
 		
 	}
 
